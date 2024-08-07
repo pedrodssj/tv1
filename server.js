@@ -1,9 +1,10 @@
+// server.js
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000; // Porta para o servidor local
 
 // Middleware para adicionar cabeçalhos CORS
 app.use((req, res, next) => {
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
 // Serve arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Proxy para redirecionar as requisições para o servidor de stream
+// Proxy para redirecionar as requisições
 app.use('/proxy', createProxyMiddleware({
     target: 'https://abc.embedmax.site',
     changeOrigin: true,
@@ -30,11 +31,8 @@ app.use('/proxy', createProxyMiddleware({
         console.error('Proxy error:', err);
         res.status(500).send('Proxy error');
     },
-    onProxyRes: (proxyRes, req, res) => {
-        proxyRes.headers['Access-Control-Allow-Origin'] = '*';
-    },
 }));
 
 app.listen(port, () => {
-    console.log(`Proxy server running at http://localhost:${port}`);
+    console.log(`Servidor local rodando na porta ${port}`);
 });
