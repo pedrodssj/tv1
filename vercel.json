@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/proxy/:path*",
-      "destination": "https://abc.embedmax.site/:path*"
+      "destination": "/api/proxy"
     }
   ]
 }
