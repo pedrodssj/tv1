@@ -1,0 +1,16 @@
+{
+  "name": "tv-stream",
+  "version": "1.0.0",
+  "description": "# tv1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -25,10 +25,6 @@ app.use('/proxy', createProxyMiddleware({
     },
     onProxyReq: (proxyReq, req, res) => {
         console.log(`Proxy request: ${req.method} ${req.url}`);
-
-        // Adicione cabeçalhos adicionais se necessário
-        proxyReq.setHeader('Authorization', 'Bearer YOUR_TOKEN');
-        // Se precisar de outros cabeçalhos, adicione-os aqui
     },
     onError: (err, req, res) => {
         console.error('Proxy error:', err);
