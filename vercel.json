@@ -1,4 +1,10 @@
 {
+  "builds": [
+    {
+      "src": "public/index.html",
+      "use": "@vercel/static"
+    }
+  ],
   "rewrites": [
     {
       "source": "/proxy/:path*",
